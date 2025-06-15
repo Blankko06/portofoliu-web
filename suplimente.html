@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Magazin Suplimente - Galerie</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      color: #004080;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #004080;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 64, 128, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .nav-button {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 12px 20px;
+      background-color: #004080;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 64, 128, 0.4);
+      transition: background-color 0.3s ease;
+    }
+    .nav-button:hover {
+      background-color: #003060;
+    }
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #fff;
+    }
+    #lightbox:target {
+      display: flex;
+    }
+    /* Close button */
+    #lightbox .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galerie - Magazin Suplimente</h1>
+  <div class="gallery">
+    <img src="suplimente1.png" alt="Suplimente - Poză 1" onclick="openLightbox(this)" />
+    <img src="suplimente2.png" alt="Suplimente - Poză 2" onclick="openLightbox(this)" />
+    <img src="suplimente3.png" alt="Suplimente - Poză 3" onclick="openLightbox(this)" />
+    <img src="suplimente4.png" alt="Suplimente - Poză 4" onclick="openLightbox(this)" />
+    <img src="suplimente5.png" alt="Suplimente - Poză 5" onclick="openLightbox(this)" />
+  </div>
+  <a class="nav-button" href="index.html">← Înapoi la pagina principală</a>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagine mărire" />
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+    function closeLightbox(event) {
+      if (event.target.id === 'lightbox' || event.target.className === 'close-btn') {
+        document.getElementById('lightbox').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

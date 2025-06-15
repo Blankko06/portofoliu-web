@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant Local - Galerie</title>
+  <style>
+    body {
+      background-color: #fff8f0;
+      color: #4a2c1a;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #4a2c1a;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(74, 44, 26, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .nav-button {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      color: #b35a1a;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+    .nav-button:hover {
+      text-decoration: underline;
+    }
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 30px #b35a1a;
+    }
+    /* Close button */
+    #lightbox .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #b35a1a;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Galerie - Restaurant Local</h1>
+  <div class="gallery">
+    <img src="restaurant1.png" alt="Restaurant - Poză 1" onclick="openLightbox(this)" />
+    <img src="restaurant2.png" alt="Restaurant - Poză 2" onclick="openLightbox(this)" />
+    <img src="restaurant3.png" alt="Restaurant - Poză 3" onclick="openLightbox(this)" />
+    <img src="restaurant5.png" alt="Restaurant - Poză 5" onclick="openLightbox(this)" />
+    <img src="restaurant6.png" alt="Restaurant - Poză 6" onclick="openLightbox(this)" />
+  </div>
+  <a class="nav-button" href="index.html">← Înapoi la pagina principală</a>
+
+  <!-- Lightbox container -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagine mărită" />
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+    function closeLightbox(event) {
+      if (event.target.id === 'lightbox' || event.target.className === 'close-btn') {
+        document.getElementById('lightbox').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
