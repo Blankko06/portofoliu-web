@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portofoliu Web Design - Pirnau Albert</title>
   <style>
     :root {
@@ -21,9 +21,22 @@
       padding: 40px 20px;
       text-align: center;
       box-shadow: var(--shadow);
+      position: relative;
     }
     header h1 { font-size: 2.5em; margin-bottom: 10px; }
     header p { font-size: 1.2em; color: #ccc; }
+
+    /* Dropdown limbi în dreapta sus */
+    #languageSelect {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
     section { padding: 60px 20px; max-width: 1100px; margin: auto; }
     h2 { color: var(--primary); margin-bottom: 30px; font-size: 2em; }
@@ -73,73 +86,167 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Pirnau Albert</h1>
-    <p>Web Designer & Developer</p>
+    <h1 id="header-name">Pirnau Albert</h1>
+    <p id="header-profession">Web Designer & Developer</p>
+
+    <!-- Dropdown limbi -->
+    <select id="languageSelect" aria-label="Select language">
+      <option value="en">English</option>
+      <option value="ro">Română</option>
+      <option value="nl">Nederlands</option>
+    </select>
   </header>
 
   <section>
-    <h2>Proiectele Mele</h2>
+    <h2 id="projects-title">My Projects</h2>
     <div class="projects">
-  <div class="project">
-    <img src="restaurant1.png" alt="Site Restaurant">
-    <h3>Restaurant Local</h3>
-    <p>Website de prezentare pentru un restaurant local, cu meniu online, secțiune de rezervări și design elegant</p>
-    <a href="restaurant.html">Vezi toate pozele</a>
-  </div>
-  <div class="project">
-    <img src="frizerie1.png" alt="Site Frizerie">
-    <h3>Frizerie Modernă</h3>
-    <p>Site pentru frizerie, cu programări, prezentare servicii si contact </p>
-    <a href="frizerie.html">Vezi toate pozele</a>
-  </div>
-  <div class="project">
-    <img src="suplimente1.png" alt="Magazin Suplimente">
-    <h3>Magazin de Suplimente</h3>
-    <p>Magazin online pentru suplimente nutritive, cu pagină de produse, coș de cumpărături (demo), contact .</p>
-  <a href="suplimente.html">Vezi toate pozele</a>
-
-  </div>
-</div>
+      <div class="project">
+        <img src="restaurant1.png" alt="Site Restaurant" />
+        <h3 id="project1-title">Local Restaurant</h3>
+        <p id="project1-desc">Presentation website for a local restaurant, with online menu, reservations section and elegant design.</p>
+        <a href="restaurant.html" id="project1-link">See all pictures</a>
+      </div>
+      <div class="project">
+        <img src="frizerie1.png" alt="Site Frizerie" />
+        <h3 id="project2-title">Modern Barbershop</h3>
+        <p id="project2-desc">Website for barbershop, with appointments, service presentation and contact.</p>
+        <a href="frizerie.html" id="project2-link">See all pictures</a>
+      </div>
+      <div class="project">
+        <img src="suplimente1.png" alt="Magazin Suplimente" />
+        <h3 id="project3-title">Supplement Store</h3>
+        <p id="project3-desc">Online store for nutritional supplements, with products page, shopping cart (demo), contact.</p>
+        <a href="suplimente.html" id="project3-link">See all pictures</a>
+      </div>
+    </div>
   </section>
 
   <section class="about">
-    <h2>Despre Mine</h2>
-    <p>Sunt un tânăr web designer pasionat de tehnologie și design curat. Creez site-uri rapide, responsive și ușor de folosit pentru afaceri mici și mijlocii. Momentan sunt student și lucrez la proiecte proprii, dar sunt disponibil pentru colaborări!</p>
+    <h2 id="about-title">About Me</h2>
+    <p id="about-desc">I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. I am currently a student working on my own projects but available for collaborations!</p>
   </section>
 
   <section class="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:contactultau@email.com">albertparnau@email.com</a></p>
-    <p>WhatsApp: <a href="https://wa.me/numarul-tau">+32 495 56 29 06 </a></p>
+    <h2 id="contact-title">Contact</h2>
+    <p>Email: <a href="mailto:contactultau@email.com" id="contact-email">albertparnau@email.com</a></p>
+    <p>WhatsApp: <a href="https://wa.me/numarul-tau" id="contact-whatsapp">+40 758 581 926</a></p>
+    <p id="contact-phone">Phone number: +32 495 56 29 06</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Pirnau Albert | Portofoliu Web Design</p>
+    <p id="footer-text">© 2025 Pirnau Albert | Web Design Portfolio</p>
   </footer>
 
   <script>
-    // Animație simplă la scroll
-    const sections = document.querySelectorAll('section');
-    const options = {
-      threshold: 0.1
+    const languageSelect = document.getElementById('languageSelect');
+
+    const translations = {
+      en: {
+        headerName: "Pirnau Albert",
+        headerProfession: "Web Designer & Developer",
+        projectsTitle: "My Projects",
+        project1Title: "Local Restaurant",
+        project1Desc: "Presentation website for a local restaurant, with online menu, reservations section and elegant design.",
+        project1Link: "See all pictures",
+        project2Title: "Modern Barbershop",
+        project2Desc: "Website for barbershop, with appointments, service presentation and contact.",
+        project2Link: "See all pictures",
+        project3Title: "Supplement Store",
+        project3Desc: "Online store for nutritional supplements, with products page, shopping cart (demo), contact.",
+        project3Link: "See all pictures",
+        aboutTitle: "About Me",
+        aboutDesc: "I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. I am currently a student working on my own projects but available for collaborations!",
+        contactTitle: "Contact",
+        contactEmail: "albertparnau@email.com",
+        contactWhatsApp: "+40 758 581 926",
+        contactPhone: "Phone number: +32 495 56 29 06",
+        footer: "© 2025 Pirnau Albert | Web Design Portfolio"
+      },
+      ro: {
+        headerName: "Pirnau Albert",
+        headerProfession: "Web Designer & Developer",
+        projectsTitle: "Proiectele Mele",
+        project1Title: "Restaurant Local",
+        project1Desc: "Website de prezentare pentru un restaurant local, cu meniu online, secțiune de rezervări și design elegant.",
+        project1Link: "Vezi toate pozele",
+        project2Title: "Frizerie Modernă",
+        project2Desc: "Site pentru frizerie, cu programări, prezentare servicii și contact.",
+        project2Link: "Vezi toate pozele",
+        project3Title: "Magazin de Suplimente",
+        project3Desc: "Magazin online pentru suplimente nutritive, cu pagină de produse, coș de cumpărături (demo), contact.",
+        project3Link: "Vezi toate pozele",
+        aboutTitle: "Despre Mine",
+        aboutDesc: "Sunt un tânăr web designer pasionat de tehnologie și design curat. Creez site-uri rapide, responsive și ușor de folosit pentru afaceri mici și mijlocii. Momentan sunt student și lucrez la proiecte proprii, dar sunt disponibil pentru colaborări!",
+        contactTitle: "Contact",
+        contactEmail: "albertparnau@email.com",
+        contactWhatsApp: "+40 758 581 926",
+        contactPhone: "Număr de telefon: +32 495 56 29 06",
+        footer: "© 2025 Pirnau Albert | Portofoliu Web Design"
+      },
+      nl: {
+        headerName: "Pirnau Albert",
+        headerProfession: "Webdesigner & Ontwikkelaar",
+        projectsTitle: "Mijn Projecten",
+        project1Title: "Lokaal Restaurant",
+        project1Desc: "Presentatiewebsite voor een lokaal restaurant, met online menu, reserveringssectie en elegant ontwerp.",
+        project1Link: "Bekijk alle foto's",
+        project2Title: "Moderne Kapsalon",
+        project2Desc: "Website voor kapsalon, met afspraken, servicepresentatie en contact.",
+        project2Link: "Bekijk alle foto's",
+        project3Title: "Supplementenwinkel",
+        project3Desc: "Online winkel voor voedingssupplementen, met productpagina, winkelwagen (demo), contact.",
+        project3Link: "Bekijk alle foto's",
+        aboutTitle: "Over Mij",
+        aboutDesc: "Ik ben een jonge webdesigner die gepassioneerd is door technologie en strak design. Ik maak snelle, responsieve en gebruiksvriendelijke websites voor kleine en middelgrote bedrijven. Ik ben momenteel student en werk aan mijn eigen projecten, maar sta open voor samenwerkingen!",
+        contactTitle: "Contact",
+        contactEmail: "albertparnau@email.com",
+        contactWhatsApp: "+40 758 581 926",
+        contactPhone: "Telefoonnummer: +32 495 56 29 06",
+        footer: "© 2025 Pirnau Albert | Webdesign Portfolio"
+      }
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.style.opacity = 1;
-          entry.target.style.transform = "translateY(0)";
-        }
-      });
-    }, options);
+    function updateLanguage(lang) {
+      const t = translations[lang];
 
-    sections.forEach(section => {
-      section.style.opacity = 0;
-      section.style.transform = "translateY(40px)";
-      section.style.transition = "all 0.6s ease-out";
-      observer.observe(section);
+      document.getElementById('header-name').textContent = t.headerName;
+      document.getElementById('header-profession').textContent = t.headerProfession;
+
+      document.getElementById('projects-title').textContent = t.projectsTitle;
+
+      document.getElementById('project1-title').textContent = t.project1Title;
+      document.getElementById('project1-desc').textContent = t.project1Desc;
+      document.getElementById('project1-link').textContent = t.project1Link;
+
+      document.getElementById('project2-title').textContent = t.project2Title;
+      document.getElementById('project2-desc').textContent = t.project2Desc;
+      document.getElementById('project2-link').textContent = t.project2Link;
+
+      document.getElementById('project3-title').textContent = t.project3Title;
+      document.getElementById('project3-desc').textContent = t.project3Desc;
+      document.getElementById('project3-link').textContent = t.project3Link;
+
+      document.getElementById('about-title').textContent = t.aboutTitle;
+      document.getElementById('about-desc').textContent = t.aboutDesc;
+
+      document.getElementById('contact-title').textContent = t.contactTitle;
+      document.getElementById('contact-email').textContent = t.contactEmail;
+      document.getElementById('contact-whatsapp').textContent = t.contactWhatsApp;
+      document.getElementById('contact-phone').textContent = t.contactPhone;
+
+      document.getElementById('footer-text').textContent = t.footer;
+    }
+
+    languageSelect.addEventListener('change', (e) => {
+      updateLanguage(e.target.value);
     });
+
+    // Set default language la încărcare
+    updateLanguage(languageSelect.value);
+
   </script>
+
 </body>
 </html>
