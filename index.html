@@ -1,252 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portofoliu Web Design - Pirnau Albert</title>
+  <title>Frizerie Modernă - Galerie</title>
   <style>
-    :root {
-      --primary: #2c3e50;
-      --accent: #3498db;
-      --bg: #f8f8f8;
-      --white: #fff;
-      --shadow: 0 4px 20px rgba(0,0,0,0.1);
+    body {
+      background-color: #1a1a1a;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
-    header {
-      background: linear-gradient(to right, var(--primary), #1a252f);
-      color: var(--white);
-      padding: 40px 20px;
+    h1 {
       text-align: center;
-      box-shadow: var(--shadow);
-      position: relative;
+      margin-bottom: 40px;
     }
-    header h1 { font-size: 2.5em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; color: #ccc; }
-
-    /* Dropdown limbi în dreapta sus */
-    #languageSelect {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
-    h2 { color: var(--primary); margin-bottom: 30px; font-size: 2em; }
-
-    .projects {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      gap: 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .project {
-      background: var(--white);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    .project img {
-      max-width: 100%;
+    .gallery img {
+      width: 100%;
       border-radius: 10px;
-      margin-bottom: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      cursor: pointer;
+      transition: transform 0.3s ease;
     }
-    .project h3 { margin-bottom: 10px; color: var(--accent); }
-    .project a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: var(--accent);
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
+    .gallery img:hover {
+      transform: scale(1.03);
     }
-
-    .about, .contact { background: var(--white); border-radius: 15px; padding: 30px; box-shadow: var(--shadow); margin-top: 40px; }
-    a { color: var(--accent); text-decoration: none; }
-
-    footer {
-      background: var(--primary);
-      color: var(--white);
+    .nav-button {
+      display: block;
       text-align: center;
-      padding: 30px;
-      margin-top: 60px;
+      margin-top: 30px;
+      color: #3498db;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    .nav-button:hover {
+      text-decoration: underline;
+    }
+
+    /* Lightbox styles */
+    #lightbox {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #fff;
+    }
+    /* Close button */
+    #lightbox .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* WhatsApp link styling */
+    .whatsapp-contact {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.2em;
+    }
+    .whatsapp-contact a {
+      color: #25D366; /* WhatsApp green */
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .whatsapp-contact a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <h1>Galerie - Frizerie Modernă</h1>
+  <div class="gallery">
+    <img src="frizerie1.png" alt="Frizerie - Poză 1" onclick="openLightbox(this)" />
+    <img src="frizerie2.png" alt="Frizerie - Poză 2" onclick="openLightbox(this)" />
+    <img src="frizerie3.png" alt="Frizerie - Poză 3" onclick="openLightbox(this)" />
+    <img src="frizerie4.png" alt="Frizerie - Poză 4" onclick="openLightbox(this)" />
+  </div>
+  <a class="nav-button" href="index.html">← Înapoi la pagina principală</a>
 
-  <header>
-    <h1 id="header-name">Pirnau Albert</h1>
-    <p id="header-profession">Web Designer & Developer</p>
+  <!-- WhatsApp contact -->
+  <div class="whatsapp-contact">
+    <p>WhatsApp: <a href="https://wa.me/40758581926" target="_blank" rel="noopener noreferrer">+40 758 581 926</a></p>
+  </div>
 
-    <!-- Dropdown limbi -->
-    <select id="languageSelect" aria-label="Select language">
-      <option value="en">English</option>
-      <option value="ro">Română</option>
-      <option value="nl">Nederlands</option>
-    </select>
-  </header>
-
-  <section>
-    <h2 id="projects-title">My Projects</h2>
-    <div class="projects">
-      <div class="project">
-        <img src="restaurant1.png" alt="Site Restaurant" />
-        <h3 id="project1-title">Local Restaurant</h3>
-        <p id="project1-desc">Presentation website for a local restaurant, with online menu, reservations section and elegant design.</p>
-        <a href="restaurant.html" id="project1-link">See all pictures</a>
-      </div>
-      <div class="project">
-        <img src="frizerie1.png" alt="Site Frizerie" />
-        <h3 id="project2-title">Modern Barbershop</h3>
-        <p id="project2-desc">Website for barbershop, with appointments, service presentation and contact.</p>
-        <a href="frizerie.html" id="project2-link">See all pictures</a>
-      </div>
-      <div class="project">
-        <img src="suplimente1.png" alt="Magazin Suplimente" />
-        <h3 id="project3-title">Supplement Store</h3>
-        <p id="project3-desc">Online store for nutritional supplements, with products page, shopping cart (demo), contact.</p>
-        <a href="suplimente.html" id="project3-link">See all pictures</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="about">
-    <h2 id="about-title">About Me</h2>
-    <p id="about-desc">I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. I am currently a student working on my own projects but available for collaborations!</p>
-  </section>
-
-  <section class="contact">
-    <h2 id="contact-title">Contact</h2>
-    <p>Email: <a href="mailto:contactultau@email.com" id="contact-email">albertparnau@email.com</a></p>
-   <p>WhatsApp: <a href="https://wa.me/40758581926" id="contact-whatsapp" target="_blank" rel="noopener noreferrer">+40 758 581 926</a></p>
-    <p id="contact-phone">Phone number: +32 495 56 29 06</p>
-  </section>
-
-  <footer>
-    <p id="footer-text">© 2025 Pirnau Albert | Web Design Portfolio</p>
-  </footer>
+  <!-- Lightbox container -->
+  <div id="lightbox" onclick="closeLightbox(event)">
+    <span class="close-btn" onclick="closeLightbox(event)">&times;</span>
+    <img id="lightbox-img" src="" alt="Imagine mărită" />
+  </div>
 
   <script>
-    const languageSelect = document.getElementById('languageSelect');
-
-    const translations = {
-      en: {
-        headerName: "Pirnau Albert",
-        headerProfession: "Web Designer & Developer",
-        projectsTitle: "My Projects",
-        project1Title: "Local Restaurant",
-        project1Desc: "Presentation website for a local restaurant, with online menu, reservations section and elegant design.",
-        project1Link: "See all pictures",
-        project2Title: "Modern Barbershop",
-        project2Desc: "Website for barbershop, with appointments, service presentation and contact.",
-        project2Link: "See all pictures",
-        project3Title: "Supplement Store",
-        project3Desc: "Online store for nutritional supplements, with products page, shopping cart (demo), contact.",
-        project3Link: "See all pictures",
-        aboutTitle: "About Me",
-        aboutDesc: "I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. I am currently a student working on my own projects but available for collaborations!",
-        contactTitle: "Contact",
-        contactEmail: "albertparnau@email.com",
-        contactWhatsApp: "+40 758 581 926",
-        contactPhone: "Phone number: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Web Design Portfolio"
-      },
-      ro: {
-        headerName: "Pirnau Albert",
-        headerProfession: "Web Designer & Developer",
-        projectsTitle: "Proiectele Mele",
-        project1Title: "Restaurant Local",
-        project1Desc: "Website de prezentare pentru un restaurant local, cu meniu online, secțiune de rezervări și design elegant.",
-        project1Link: "Vezi toate pozele",
-        project2Title: "Frizerie Modernă",
-        project2Desc: "Site pentru frizerie, cu programări, prezentare servicii și contact.",
-        project2Link: "Vezi toate pozele",
-        project3Title: "Magazin de Suplimente",
-        project3Desc: "Magazin online pentru suplimente nutritive, cu pagină de produse, coș de cumpărături (demo), contact.",
-        project3Link: "Vezi toate pozele",
-        aboutTitle: "Despre Mine",
-        aboutDesc: "Sunt un tânăr web designer pasionat de tehnologie și design curat. Creez site-uri rapide, responsive și ușor de folosit pentru afaceri mici și mijlocii. Momentan sunt student și lucrez la proiecte proprii, dar sunt disponibil pentru colaborări!",
-        contactTitle: "Contact",
-        contactEmail: "albertparnau@email.com",
-        contactWhatsApp: "+40 758 581 926",
-        contactPhone: "Număr de telefon: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Portofoliu Web Design"
-      },
-      nl: {
-        headerName: "Pirnau Albert",
-        headerProfession: "Webdesigner & Ontwikkelaar",
-        projectsTitle: "Mijn Projecten",
-        project1Title: "Lokaal Restaurant",
-        project1Desc: "Presentatiewebsite voor een lokaal restaurant, met online menu, reserveringssectie en elegant ontwerp.",
-        project1Link: "Bekijk alle foto's",
-        project2Title: "Moderne Kapsalon",
-        project2Desc: "Website voor kapsalon, met afspraken, servicepresentatie en contact.",
-        project2Link: "Bekijk alle foto's",
-        project3Title: "Supplementenwinkel",
-        project3Desc: "Online winkel voor voedingssupplementen, met productpagina, winkelwagen (demo), contact.",
-        project3Link: "Bekijk alle foto's",
-        aboutTitle: "Over Mij",
-        aboutDesc: "Ik ben een jonge webdesigner die gepassioneerd is door technologie en strak design. Ik maak snelle, responsieve en gebruiksvriendelijke websites voor kleine en middelgrote bedrijven. Ik ben momenteel student en werk aan mijn eigen projecten, maar sta open voor samenwerkingen!",
-        contactTitle: "Contact",
-        contactEmail: "albertparnau@email.com",
-        contactWhatsApp: "+40 758 581 926",
-        contactPhone: "Telefoonnummer: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Webdesign Portfolio"
-      }
-    };
-
-    function updateLanguage(lang) {
-      const t = translations[lang];
-
-      document.getElementById('header-name').textContent = t.headerName;
-      document.getElementById('header-profession').textContent = t.headerProfession;
-
-      document.getElementById('projects-title').textContent = t.projectsTitle;
-
-      document.getElementById('project1-title').textContent = t.project1Title;
-      document.getElementById('project1-desc').textContent = t.project1Desc;
-      document.getElementById('project1-link').textContent = t.project1Link;
-
-      document.getElementById('project2-title').textContent = t.project2Title;
-      document.getElementById('project2-desc').textContent = t.project2Desc;
-      document.getElementById('project2-link').textContent = t.project2Link;
-
-      document.getElementById('project3-title').textContent = t.project3Title;
-      document.getElementById('project3-desc').textContent = t.project3Desc;
-      document.getElementById('project3-link').textContent = t.project3Link;
-
-      document.getElementById('about-title').textContent = t.aboutTitle;
-      document.getElementById('about-desc').textContent = t.aboutDesc;
-
-      document.getElementById('contact-title').textContent = t.contactTitle;
-      document.getElementById('contact-email').textContent = t.contactEmail;
-      document.getElementById('contact-whatsapp').textContent = t.contactWhatsApp;
-      document.getElementById('contact-phone').textContent = t.contactPhone;
-
-      document.getElementById('footer-text').textContent = t.footer;
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
     }
-
-    languageSelect.addEventListener('change', (e) => {
-      updateLanguage(e.target.value);
-    });
-
-    // Set default language la încărcare
-    updateLanguage(languageSelect.value);
-
+    function closeLightbox(event) {
+      if (event.target.id === 'lightbox' || event.target.className === 'close-btn') {
+        document.getElementById('lightbox').style.display = 'none';
+      }
+    }
   </script>
-
 </body>
 </html>
