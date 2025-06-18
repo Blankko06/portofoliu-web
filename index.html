@@ -153,6 +153,12 @@
         <p id="project3-desc">Magazin online pentru suplimente nutritive, cu pagină de produse, coș de cumpărături (demo), contact.</p>
         <a href="suplimente.html" id="project3-link">Vezi toate pozele</a>
       </div>
+      <div class="project">
+        <img src="salon1.png" alt="Bella Salon" />
+        <h3 id="project4-title">Bella Salon</h3>
+        <p id="project4-desc">Site pentru salon de înfrumusețare, cu galerie foto, servicii și contact.</p>
+        <a href="salon.html" id="project4-link">Vezi toate pozele</a>
+      </div>
     </div>
   </section>
 
@@ -163,7 +169,7 @@
 
   <section class="contact">
     <h2 id="contact-title">Contact</h2>
-    <p>Email: <a href="mailto:albertparnau@email.com" id="contact-email">albertparnau@email.com</a></p>
+    <p>Email: <a href="mailto:contactultau@email.com" id="contact-email">albertparnau@email.com</a></p>
     <p>WhatsApp: <a href="https://wa.me/40758581926" id="contact-whatsapp">+40 758 581 926</a></p>
     <p id="contact-phone">Număr de telefon: +32 495 56 29 06</p>
   </section>
@@ -189,13 +195,16 @@
         project3Title: "Supplement Store",
         project3Desc: "Online store for nutritional supplements, with products page, shopping cart (demo), contact.",
         project3Link: "See all pictures",
+        project4Title: "Bella Salon",
+        project4Desc: "Website for beauty salon with photo gallery, services and contact.",
+        project4Link: "See all pictures",
         aboutTitle: "About Me",
-        aboutDesc: "I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. I am currently a student working on my own projects but available for collaborations!",
+        aboutDesc: "I am a young web designer passionate about technology and clean design. I create fast, responsive and user-friendly websites for small and medium businesses. Currently I am a student and work on personal projects, but I am open for collaborations!",
         contactTitle: "Contact",
         contactEmail: "albertparnau@email.com",
         contactWhatsApp: "+40 758 581 926",
         contactPhone: "Phone number: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Web Design Portfolio"
+        footerText: "© 2025 Pirnau Albert | Web Design Portfolio"
       },
       ro: {
         headerName: "Pirnau Albert",
@@ -210,20 +219,23 @@
         project3Title: "Magazin de Suplimente",
         project3Desc: "Magazin online pentru suplimente nutritive, cu pagină de produse, coș de cumpărături (demo), contact.",
         project3Link: "Vezi toate pozele",
+        project4Title: "Bella Salon",
+        project4Desc: "Site pentru salon de înfrumusețare, cu galerie foto, servicii și contact.",
+        project4Link: "Vezi toate pozele",
         aboutTitle: "Despre Mine",
         aboutDesc: "Sunt un tânăr web designer pasionat de tehnologie și design curat. Creez site-uri rapide, responsive și ușor de folosit pentru afaceri mici și mijlocii. Momentan sunt student și lucrez la proiecte proprii, dar sunt disponibil pentru colaborări!",
         contactTitle: "Contact",
         contactEmail: "albertparnau@email.com",
         contactWhatsApp: "+40 758 581 926",
         contactPhone: "Număr de telefon: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Portofoliu Web Design"
+        footerText: "© 2025 Pirnau Albert | Portofoliu Web Design"
       },
       nl: {
         headerName: "Pirnau Albert",
         headerProfession: "Webdesigner & Ontwikkelaar",
         projectsTitle: "Mijn Projecten",
         project1Title: "Lokaal Restaurant",
-        project1Desc: "Presentatiewebsite voor een lokaal restaurant, met online menu, reserveringssectie en elegant ontwerp.",
+        project1Desc: "Presentatiewebsite voor een lokaal restaurant, met online menu, reserveringssectie en elegant design.",
         project1Link: "Bekijk alle foto's",
         project2Title: "Moderne Kapsalon",
         project2Desc: "Website voor kapsalon, met afspraken, servicepresentatie en contact.",
@@ -231,53 +243,59 @@
         project3Title: "Supplementenwinkel",
         project3Desc: "Online winkel voor voedingssupplementen, met productpagina, winkelwagen (demo), contact.",
         project3Link: "Bekijk alle foto's",
+        project4Title: "Bella Salon",
+        project4Desc: "Website voor schoonheidssalon met fotogalerij, diensten en contact.",
+        project4Link: "Bekijk alle foto's",
         aboutTitle: "Over Mij",
-        aboutDesc: "Ik ben een jonge webdesigner die gepassioneerd is door technologie en strak design. Ik maak snelle, responsieve en gebruiksvriendelijke websites voor kleine en middelgrote bedrijven. Ik ben momenteel student en werk aan mijn eigen projecten, maar sta open voor samenwerkingen!",
+        aboutDesc: "Ik ben een jonge webdesigner met passie voor technologie en strak design. Ik maak snelle, responsive en gebruiksvriendelijke websites voor kleine en middelgrote bedrijven. Momenteel ben ik student en werk aan eigen projecten, maar ik sta open voor samenwerkingen!",
         contactTitle: "Contact",
         contactEmail: "albertparnau@email.com",
         contactWhatsApp: "+40 758 581 926",
         contactPhone: "Telefoonnummer: +32 495 56 29 06",
-        footer: "© 2025 Pirnau Albert | Webdesign Portfolio"
+        footerText: "© 2025 Pirnau Albert | Webdesign Portfolio"
       }
     };
 
     function updateLanguage(lang) {
-      const t = translations[lang];
+      document.getElementById('header-name').textContent = translations[lang].headerName;
+      document.getElementById('header-profession').textContent = translations[lang].headerProfession;
+      document.getElementById('projects-title').textContent = translations[lang].projectsTitle;
 
-      document.getElementById('header-name').textContent = t.headerName;
-      document.getElementById('header-profession').textContent = t.headerProfession;
+      document.getElementById('project1-title').textContent = translations[lang].project1Title;
+      document.getElementById('project1-desc').textContent = translations[lang].project1Desc;
+      document.getElementById('project1-link').textContent = translations[lang].project1Link;
 
-      document.getElementById('projects-title').textContent = t.projectsTitle;
+      document.getElementById('project2-title').textContent = translations[lang].project2Title;
+      document.getElementById('project2-desc').textContent = translations[lang].project2Desc;
+      document.getElementById('project2-link').textContent = translations[lang].project2Link;
 
-      document.getElementById('project1-title').textContent = t.project1Title;
-      document.getElementById('project1-desc').textContent = t.project1Desc;
-      document.getElementById('project1-link').textContent = t.project1Link;
+      document.getElementById('project3-title').textContent = translations[lang].project3Title;
+      document.getElementById('project3-desc').textContent = translations[lang].project3Desc;
+      document.getElementById('project3-link').textContent = translations[lang].project3Link;
 
-      document.getElementById('project2-title').textContent = t.project2Title;
-      document.getElementById('project2-desc').textContent = t.project2Desc;
-      document.getElementById('project2-link').textContent = t.project2Link;
+      document.getElementById('project4-title').textContent = translations[lang].project4Title;
+      document.getElementById('project4-desc').textContent = translations[lang].project4Desc;
+      document.getElementById('project4-link').textContent = translations[lang].project4Link;
 
-      document.getElementById('project3-title').textContent = t.project3Title;
-      document.getElementById('project3-desc').textContent = t.project3Desc;
-      document.getElementById('project3-link').textContent = t.project3Link;
+      document.getElementById('about-title').textContent = translations[lang].aboutTitle;
+      document.getElementById('about-desc').textContent = translations[lang].aboutDesc;
 
-      document.getElementById('about-title').textContent = t.aboutTitle;
-      document.getElementById('about-desc').textContent = t.aboutDesc;
+      document.getElementById('contact-title').textContent = translations[lang].contactTitle;
+      document.getElementById('contact-email').textContent = translations[lang].contactEmail;
+      document.getElementById('contact-whatsapp').textContent = translations[lang].contactWhatsApp;
+      document.getElementById('contact-phone').textContent = translations[lang].contactPhone;
 
-      document.getElementById('contact-title').textContent = t.contactTitle;
-      document.getElementById('contact-email').textContent = t.contactEmail;
-      document.getElementById('contact-whatsapp').textContent = t.contactWhatsApp;
-      document.getElementById('contact-phone').textContent = t.contactPhone;
-
-      document.getElementById('footer-text').textContent = t.footer;
+      document.getElementById('footer-text').textContent = translations[lang].footerText;
     }
 
-    languageSelect.addEventListener('change', e => {
+    languageSelect.addEventListener('change', (e) => {
       updateLanguage(e.target.value);
     });
 
-    // Inițializare limba selectată la încărcare
-    updateLanguage(languageSelect.value);
+    // La încărcarea paginii setăm limba selectată (română implicit)
+    window.addEventListener('load', () => {
+      updateLanguage(languageSelect.value);
+    });
   </script>
 
 </body>
